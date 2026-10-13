@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Niks — Desk & Home Essentials</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a href="#" class="logo" aria-label="Kora home">Niks<span>.</span></a>
+
+    <form class="search" role="search" onsubmit="return false">
+      <input id="search" type="search" placeholder="Search products" aria-label="Search products" autocomplete="off" />
+    </form>
+
+    <button id="cart-btn" class="cart-btn" aria-label="Open cart">
+      Cart <span id="cart-count" class="cart-count">0</span>
+    </button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-text">
+        <h1>Better things for the place you work and live.</h1>
+        <p>Audio, desk gear, wearables and home picks — chosen for daily use, shipped free above ₹2,000.</p>
+        <a href="#shop" class="btn btn-primary">Shop all products</a>
+      </div>
+
+      <article class="hero-feature" id="hero-feature" aria-label="Featured product"></article>
+    </section>
+
+    <section id="shop" class="shop">
+      <div class="toolbar">
+        <div id="filters" class="filters" role="group" aria-label="Filter by category"></div>
+        <label class="sort">
+          Sort by
+          <select id="sort">
+            <option value="featured">Featured</option>
+            <option value="low">Price: low to high</option>
+            <option value="high">Price: high to low</option>
+            <option value="rating">Top rated</option>
+          </select>
+        </label>
+      </div>
+
+      <p id="result-count" class="result-count" aria-live="polite"></p>
+      <div id="product-grid" class="product-grid"></div>
+      <p id="empty" class="empty" hidden>No products match your search. Try a different word or clear the category filter.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p><strong>kora.</strong> A demo store built with HTML, CSS and JavaScript.</p>
+  </footer>
+
+  <!-- Product quick view -->
+  <div id="modal" class="modal" hidden>
+    <div class="modal-backdrop" data-close="modal"></div>
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <button class="icon-btn modal-close" data-close="modal" aria-label="Close">✕</button>
+      <div id="modal-body" class="modal-body"></div>
+    </div>
+  </div>
+
+  <!-- Cart drawer -->
+  <div id="drawer" class="drawer" hidden>
+    <div class="modal-backdrop" data-close="drawer"></div>
+    <aside class="drawer-panel" role="dialog" aria-modal="true" aria-label="Shopping cart">
+      <div class="drawer-head">
+        <h2>Your cart</h2>
+        <button class="icon-btn" data-close="drawer" aria-label="Close cart">✕</button>
+      </div>
+      <ul id="cart-items" class="cart-items"></ul>
+      <div id="cart-empty" class="cart-empty">Your cart is empty. Add something you like.</div>
+      <div id="cart-footer" class="cart-footer">
+        <div class="row"><span>Subtotal</span><span id="subtotal">₹0</span></div>
+        <div class="row muted"><span>Shipping</span><span id="shipping">₹0</span></div>
+        <div class="row total"><span>Total</span><span id="total">₹0</span></div>
+        <button id="checkout" class="btn btn-primary full">Checkout</button>
+        <button id="clear-cart" class="btn-link">Clear cart</button>
+      </div>
+    </aside>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
